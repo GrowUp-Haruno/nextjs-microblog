@@ -1,5 +1,5 @@
-import Heading from '@/components/heading/Heading';
-import BorderCircle from '@/components/images/BorderCircle';
+import Heading from '@/components/styles/Heading';
+import BorderCircle from '@/components/styles/BorderCircle';
 import Head from 'next/head';
 import { FC } from 'react';
 import styled from 'styled-components';
