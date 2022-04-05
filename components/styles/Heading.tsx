@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-type propsType = {
+export type HeadingProps = {
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   size: 'md' | 'lg' | 'xl' | '2xl';
 };
 
-const Heading: FC<propsType> = ({ as, size, children }) => {
+const Heading: FC<HeadingProps> = ({ as, size, children }) => {
   const SDiv =
     size === 'md'
       ? styled.div`
