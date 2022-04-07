@@ -70,4 +70,96 @@ describe('指定のスタイルが適用できてるか', () => {
       expectStyles(heading, componentsStyles, '2xl');
     });
   });
+  describe('Heading(h3)', () => {
+    const componentsStyles = getComponentsStyles(SDiv);
+    it('md', () => {
+      render(<Heading as="h3" size="md"></Heading>);
+      const heading = screen.getByRole('heading', { level: 3 });
+      expectStyles(heading, componentsStyles, 'md');
+    });
+    it('lg', () => {
+      render(<Heading as="h3" size="lg"></Heading>);
+      const heading = screen.getByRole('heading', { level: 3 });
+      expectStyles(heading, componentsStyles, 'lg');
+    });
+    it('xl', () => {
+      render(<Heading as="h3" size="xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 3 });
+      expectStyles(heading, componentsStyles, 'xl');
+    });
+    it('2xl', () => {
+      render(<Heading as="h3" size="2xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 3 });
+      expectStyles(heading, componentsStyles, '2xl');
+    });
+  });
+  describe('Heading(h4)', () => {
+    const componentsStyles = getComponentsStyles(SDiv);
+    it('md', () => {
+      render(<Heading as="h4" size="md"></Heading>);
+      const heading = screen.getByRole('heading', { level: 4 });
+      expectStyles(heading, componentsStyles, 'md');
+    });
+    it('lg', () => {
+      render(<Heading as="h4" size="lg"></Heading>);
+      const heading = screen.getByRole('heading', { level: 4 });
+      expectStyles(heading, componentsStyles, 'lg');
+    });
+    it('xl', () => {
+      render(<Heading as="h4" size="xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 4 });
+      expectStyles(heading, componentsStyles, 'xl');
+    });
+    it('2xl', () => {
+      render(<Heading as="h4" size="2xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 4 });
+      expectStyles(heading, componentsStyles, '2xl');
+    });
+  });
+  describe('Heading(h5)', () => {
+    const componentsStyles = getComponentsStyles(SDiv);
+    it('md', () => {
+      render(<Heading as="h5" size="md"></Heading>);
+      const heading = screen.getByRole('heading', { level: 5 });
+      expectStyles(heading, componentsStyles, 'md');
+    });
+    it('lg', () => {
+      render(<Heading as="h5" size="lg"></Heading>);
+      const heading = screen.getByRole('heading', { level: 5 });
+      expectStyles(heading, componentsStyles, 'lg');
+    });
+    it('xl', () => {
+      render(<Heading as="h5" size="xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 5 });
+      expectStyles(heading, componentsStyles, 'xl');
+    });
+    it('2xl', () => {
+      render(<Heading as="h5" size="2xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 5 });
+      expectStyles(heading, componentsStyles, '2xl');
+    });
+  });
+  describe('Heading(h6)', () => {
+    const componentsStyles = getComponentsStyles(SDiv);
+    it('md', () => {
+      render(<Heading as="h6" size="md"></Heading>);
+      const heading = screen.getByRole('heading', { level: 6 });
+      expectStyles(heading, componentsStyles, 'md');
+    });
+    it('lg', () => {
+      render(<Heading as="h6" size="lg"></Heading>);
+      const heading = screen.getByRole('heading', { level: 6 });
+      expectStyles(heading, componentsStyles, 'lg');
+    });
+    it('xl', () => {
+      render(<Heading as="h6" size="xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 6 });
+      expectStyles(heading, componentsStyles, 'xl');
+    });
+    it('2xl', () => {
+      render(<Heading as="h6" size="2xl"></Heading>);
+      const heading = screen.getByRole('heading', { level: 6 });
+      expectStyles(heading, componentsStyles, '2xl');
+    });
+  });
 });
