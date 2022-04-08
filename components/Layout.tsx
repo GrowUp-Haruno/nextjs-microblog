@@ -42,7 +42,7 @@ const Layout: FC = ({ children }) => {
       <SHeader>
         {/* <img src="/images/profile.png" alt="プロフィール画像" /> */}
         <SBorderCircle src="/images/profile.png" alt="プロフィール画像" />
-        <Heading as='h1' size='lg'>{name}</Heading>
+        <Heading as='h1' size='2xl'>{name}</Heading>
       </SHeader>
       <main>{children}</main>
     </SContainer>
