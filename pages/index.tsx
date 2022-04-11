@@ -1,17 +1,18 @@
 // pages/index.js
-import Layout from '@/components/Layout';
+import Layout, { siteTitle } from '@/components/Layout';
 import Grid from '@/components/styles/Grid';
 import Heading from '@/components/styles/Heading';
 import Text from '@/components/styles/Text';
 import ThumbnailImage from '@/components/styles/ThumbnailImage';
-import { getPostData } from 'lib/post';
+import { getPostsData } from 'lib/post';
 import { InferGetStaticPropsType } from 'next';
+import Head from 'next/head';
 
 import Link from 'next/link';
 
 // SSGの場合
 export async function getStaticProps() {
-  const allPostsData = getPostData();
+  const allPostsData = getPostsData();
 
   return {
     props: {
@@ -22,7 +23,11 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      
       <section>
         <Heading as="h2" size="md">
           私はフロントエンジニアです/ReactとTypeScriptが好きです
