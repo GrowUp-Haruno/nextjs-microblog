@@ -4,9 +4,23 @@ import Grid from '@/components/styles/Grid';
 import Heading from '@/components/styles/Heading';
 import Text from '@/components/styles/Text';
 import ThumbnailImage from '@/components/styles/ThumbnailImage';
+import { getPostData } from 'lib/post';
+import { InferGetStaticPropsType } from 'next';
+
 import Link from 'next/link';
 
-export default function Home() {
+// SSGの場合
+export async function getStaticProps() {
+  const allPostsData = getPostData();
+
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <section>
@@ -19,42 +33,17 @@ export default function Home() {
           📝エンジニアのブログ
         </Heading>
         <Grid>
-          <article>
-            <Link href="/">
-              <ThumbnailImage src="/images/thumbnail01.jpg" />
-            </Link>
-            <Link href="/">
-              <Text type="bold">SSGとSSRの使い分けの場面はいつなのか？</Text>
-            </Link>
-            <Text type="light">February 23, 2000</Text>
-          </article>
-          <article>
-            <Link href="/">
-              <ThumbnailImage src="/images/thumbnail01.jpg" />
-            </Link>
-            <Link href="/">
-              <Text type="bold">SSGとSSRの使い分けの場面はいつなのか？</Text>
-            </Link>
-            <Text type="light">February 23, 2000</Text>
-          </article>
-          <article>
-            <Link href="/">
-              <ThumbnailImage src="/images/thumbnail01.jpg" />
-            </Link>
-            <Link href="/">
-              <Text type="bold">SSGとSSRの使い分けの場面はいつなのか？</Text>
-            </Link>
-            <Text type="light">February 23, 2000</Text>
-          </article>
-          <article>
-            <Link href="/">
-              <ThumbnailImage src="/images/thumbnail01.jpg" />
-            </Link>
-            <Link href="/">
-              <Text type="bold">SSGとSSRの使い分けの場面はいつなのか？</Text>
-            </Link>
-            <Text type="light">February 23, 2000</Text>
-          </article>
+          {allPostsData.map(({ id, data }) => (
+            <article key={id}>
+              <Link href={`/posts/${id}`}>
+                <ThumbnailImage src={data.thumbnail} />
+              </Link>
+              <Link href={`/posts/${id}`}>
+                <Text type="bold">{data.title}</Text>
+              </Link>
+              <Text type="light">{data.date}</Text>
+            </article>
+          ))}
         </Grid>
       </section>
     </Layout>
