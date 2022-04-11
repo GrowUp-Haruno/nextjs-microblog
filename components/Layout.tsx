@@ -3,18 +3,10 @@ import BorderCircle from '@/components/styles/BorderCircle';
 import Head from 'next/head';
 import { FC } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const name = 'HaL Code';
 export const siteTitle = 'Next.js blog';
-
-// .headerHomeImage {
-//   width: 8rem;
-//   height: 8rem;
-// }
-
-// .backToHome {
-//   margin: 3rem 0 0;
-// }
 
 const SContainer = styled.div`
   max-width: 1244px;
@@ -33,18 +25,46 @@ const SBorderCircle = styled(BorderCircle)`
   height: 6rem;
 `;
 
-const Layout: FC = ({ children }) => {
+const SBorderCircleHome = styled(BorderCircle)`
+  width: 8rem;
+  height: 8rem;
+`;
+
+const SDivBackToHome = styled.div`
+  margin: 3rem 0 0;
+`;
+
+const Layout: FC<{ home?: boolean }> = ({ children, home }) => {
   return (
     <SContainer>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SHeader>
-        {/* <img src="/images/profile.png" alt="プロフィール画像" /> */}
-        <SBorderCircle src="/images/profile.png" alt="プロフィール画像" />
-        <Heading as='h1' size='2xl'>{name}</Heading>
+        {home ? (
+          <>
+            <SBorderCircleHome src="/images/profile.png" alt="プロフィール画像" />
+            <Heading as="h1" size="2xl">
+              {name}
+            </Heading>
+          </>
+        ) : (
+          <>
+            <SBorderCircle src="/images/profile.png" alt="プロフィール画像" />
+            <Heading as="h1" size="xl">
+              {name}
+            </Heading>
+          </>
+        )}
       </SHeader>
-      <main>{children}</main>
+      <main>
+        {children}
+        {!home && (
+          <SDivBackToHome>
+            <Link href="/">👈ホームに戻る</Link>
+          </SDivBackToHome>
+        )}
+      </main>
     </SContainer>
   );
 };
