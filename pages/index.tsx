@@ -9,6 +9,7 @@ import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 
 import Link from 'next/link';
+import styled from 'styled-components';
 
 // SSGの場合
 export async function getStaticProps() {
@@ -33,6 +34,7 @@ export default function Home({ allPostsData }: InferGetStaticPropsType<typeof ge
           私はフロントエンジニアです/ReactとTypeScriptが好きです
         </Heading>
       </section>
+      
       <section>
         <Heading as="h2" size="md">
           📝エンジニアのブログ

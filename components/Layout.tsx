@@ -34,6 +34,16 @@ const SDivBackToHome = styled.div`
   margin: 3rem 0 0;
 `;
 
+const SMain = styled.main`
+  min-height: 100vh;
+  padding: 2rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Layout: FC<{ home?: boolean }> = ({ children, home }) => {
   return (
     <SContainer>
@@ -57,14 +67,14 @@ const Layout: FC<{ home?: boolean }> = ({ children, home }) => {
           </>
         )}
       </SHeader>
-      <main>
+      <SMain>
         {children}
         {!home && (
           <SDivBackToHome>
             <Link href="/">👈ホームに戻る</Link>
           </SDivBackToHome>
         )}
-      </main>
+      </SMain>
     </SContainer>
   );
 };
